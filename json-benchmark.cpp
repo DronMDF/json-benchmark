@@ -1,35 +1,21 @@
 
-#include "Skeleton.h"
+#include <celero/Celero.h>
 
 using namespace std;
 
-class NullImplementation : public Skeleton<int>
-{
-	virtual string name() const override {
-		return "null";
-	}
-	virtual int prepare(size_t) const override {
-		// Структура должна быть идентична
-		// список из указанного количества элеменотов следующего формата:
-		// { "name": "element", "enable": true, "size": 123456, "data": [] }
-		return 0;
-	}
-	virtual string jsonify(const int &) const override {
-		return {};
-	}
-	virtual int parse(const string &) const override {
-		return 0;
-	}
-
-	virtual bool isEqual(const int &, const int &) const override {
-		return true;
-	}
+class NullJson {
+public:
+	void parse() {}
 };
 
-int main(int, char **)
+template<typename Impl>
+class ParseFixture : public celero::TestFixture, public Impl {
+};
+
+BASELINE_F(Abstract, NullJson, ParseFixture<NullJson>, 10, 1)
 {
-	const size_t size = 1000000;
-	NullImplementation().run(size);
-	return 0;
+	parse();
 }
+
+CELERO_MAIN
 
