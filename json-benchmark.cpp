@@ -9,6 +9,9 @@ class NullImplementation : public Skeleton<int>
 		return "null";
 	}
 	virtual int prepare(size_t) const override {
+		// Структура должна быть идентична
+		// список из указанного количества элеменотов следующего формата:
+		// { "name": "element", "enable": true, "size": 123456, "data": [] }
 		return 0;
 	}
 	virtual string jsonify(const int &) const override {

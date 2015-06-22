@@ -8,6 +8,8 @@
 template<typename T>
 class Skeleton {
 public:
+	typedef T type;
+
 	virtual std::string name() const = 0;
 	virtual T prepare(size_t size) const = 0;
 	virtual std::string jsonify(const T &data) const = 0;
