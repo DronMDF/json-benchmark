@@ -10,6 +10,19 @@ public:
 		reader.parse(json, root);
 	}
 
-private:
+	std::string generate() const {
+		Json::FastWriter writer;
+		return writer.write(root);
+	}
+
+protected:
 	Json::Value root;
+};
+
+class jsoncpp_styled : public jsoncpp {
+public:
+	std::string generate() const {
+		Json::StyledWriter writer;
+		return writer.write(root);
+	}
 };
