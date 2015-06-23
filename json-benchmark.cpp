@@ -3,7 +3,8 @@
 #include <fstream>
 #include <celero/Celero.h>
 
-#include "BoostPTree.h"
+#include "boost_property_tree.h"
+#include "jsoncpp.h"
 
 using namespace std;
 
@@ -24,7 +25,12 @@ public:
 
 };
 
-BASELINE_F(Parsing, BoostPTree, ParseFixture<BoostPTree>, 10, 1)
+BASELINE_F(Parsing, jsoncpp, ParseFixture<jsoncpp>, 10, 1)
+{
+	parse();
+}
+
+BENCHMARK_F(Parsing, boost_property_tree, ParseFixture<boost_property_tree>, 10, 1)
 {
 	parse();
 }

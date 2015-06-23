@@ -4,7 +4,7 @@
 #include <sstream>
 #include <boost/property_tree/json_parser.hpp>
 
-class BoostPTree {
+class boost_property_tree {
 public:
 	void parse(const std::string &json) {
 		std::istringstream jfile(json);

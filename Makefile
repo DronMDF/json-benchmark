@@ -5,7 +5,7 @@ run:
 	LD_PRELOAD=./build/celero/libcelero.so ./json-benchmark
 
 json-benchmark: json-benchmark.cpp
-	g++ ${CXXFLAGS} json-benchmark.cpp -o json-benchmark -lcelero
+	g++ ${CXXFLAGS} json-benchmark.cpp -o json-benchmark -lcelero -ljsoncpp
 
 celero:
 	mkdir -p build/celero
