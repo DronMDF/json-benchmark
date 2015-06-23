@@ -2,7 +2,8 @@
 CXXFLAGS += -std=c++11 -O2 -g0 -ICelero/include -Lbuild/celero
 
 run:
-	LD_PRELOAD=./build/celero/libcelero.so ./json-benchmark
+	LD_PRELOAD=./build/celero/libcelero.so ./json-benchmark -g Parsing
+	LD_PRELOAD=./build/celero/libcelero.so ./json-benchmark -g Generating
 
 json-benchmark: json-benchmark.cpp
 	g++ ${CXXFLAGS} json-benchmark.cpp -o json-benchmark -lcelero -ljsoncpp

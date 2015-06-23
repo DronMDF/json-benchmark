@@ -58,27 +58,27 @@ public:
 
 BASELINE_F(Generating, jsoncpp, GenerateFixture<jsoncpp>, 10, 1)
 {
-	generate();
+	celero::DoNotOptimizeAway(generate());
 }
 
 BENCHMARK_F(Generating, jsoncpp_styled, GenerateFixture<jsoncpp_styled>, 10, 1)
 {
-	generate();
+	celero::DoNotOptimizeAway(generate());
 }
 
 BENCHMARK_F(Generating, ptree, GenerateFixture<boost_property_tree>, 10, 1)
 {
-	generate();
+	celero::DoNotOptimizeAway(generate());
 }
 
 BENCHMARK_F(Generating, ptree_styled, GenerateFixture<boost_property_tree_styled>, 10, 1)
 {
-	generate();
+	celero::DoNotOptimizeAway(generate());
 }
 
 BENCHMARK_F(Generating, json11, GenerateFixture<json11>, 10, 1)
 {
-	generate();
+	celero::DoNotOptimizeAway(generate());
 }
 
 CELERO_MAIN
