@@ -1,18 +1,21 @@
 
 #pragma once
 #include <string>
-#include "rapidjson/include/rapidjson/rapidjson.h"
+#include "rapidjson/include/rapidjson/document.h"
+#include "rapidjson/include/rapidjson/writer.h"
+#include "rapidjson/include/rapidjson/stringbuffer.h"
 
-class rapidjson {
+class rapidjson_bench {
 public:
 	void parse(const std::string &json) {
-		root.Parse(json);
+		root.Parse(json.c_str());
 	}
 
 	std::string generate() const {
 		rapidjson::StringBuffer buffer;
-		Writer<StringBuffer> writer(buffer);
-    d.Accept(writer);
+		rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
+		root.Accept(writer);
+		return buffer.GetString();
 	}
 
 protected:

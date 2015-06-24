@@ -6,6 +6,7 @@
 #include "boost_property_tree.h"
 #include "jsoncpp.h"
 #include "json11.h"
+#include "rapidjson.h"
 
 using namespace std;
 
@@ -36,6 +37,11 @@ BENCHMARK_F(Parsing, ptree, ParseFixture<boost_property_tree>, 10, 1)
 }
 
 BENCHMARK_F(Parsing, json11, ParseFixture<json11>, 10, 1)
+{
+	parse();
+}
+
+BENCHMARK_F(Parsing, rapidjson, ParseFixture<rapidjson_bench>, 10, 1)
 {
 	parse();
 }
@@ -77,6 +83,11 @@ BENCHMARK_F(Generating, ptree_styled, GenerateFixture<boost_property_tree_styled
 }
 
 BENCHMARK_F(Generating, json11, GenerateFixture<json11>, 10, 1)
+{
+	celero::DoNotOptimizeAway(generate());
+}
+
+BENCHMARK_F(Generating, rapidjson, GenerateFixture<rapidjson_bench>, 10, 1)
 {
 	celero::DoNotOptimizeAway(generate());
 }
