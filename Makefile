@@ -1,5 +1,5 @@
 
-CXXFLAGS += -std=c++11 -O2 -g0 -ICelero/include -Lbuild/celero
+CXXFLAGS += -std=c++11 -O2 -g0 -ICelero/include -Lbuild/celero -Ijson_spirit
 
 run:
 	LD_PRELOAD=./build/celero/libcelero.so ./json-benchmark -g Parsing

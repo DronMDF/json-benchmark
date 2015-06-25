@@ -7,3 +7,6 @@
 [submodule "rapidjson"]
 	path = rapidjson
 	url = https://github.com/miloyip/rapidjson.git
+[submodule "json_spirit"]
+	path = json_spirit
+	url = https://github.com/cierelabs/json_spirit.git
